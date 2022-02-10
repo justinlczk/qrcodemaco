@@ -9,11 +9,36 @@
 <body>
     <h1>QrCode Maker</h1>
 
-    <div class="qr">
-        
+    <div id="qrcode" class="qr">
+
+    </div>
+
+    <div class="form-ctn">
+        <form id="form">
+
+            <input type="text" id="nom" placeholder="Votre nom">
+            <input type="text" id="prenom" placeholder="Votre prénom">
+            <!--<input type="text" id="tel" placeholder="Votre téléphone fixe">-->
+            <input type="text" id="tel-mobile" placeholder="Votre téléphone mobile">
+            <input type="text" id="email" placeholder="Votre email">
+
+            <!-- <input type="text" id="website">
+            <input type="text" id="societe"> -->
+
+            <input type="text" id="poste" placeholder="Le poste que vous occupez chez Macopharma">
+            
+            <input type="text" id="adresse" placeholder="Votre adresse">
+            <input type="text" id="region" placeholder="Votre région">
+            <input type="text" id="cp" placeholder="Votre CP">
+            <input type="text" id="ville" placeholder="Votre Ville">
+            <input type="text" id="pays" placeholder="Votre pays">
+
+            <input type="submit" value="Valider">
+        </form>
     </div>
 
     <script src="/qrcode.js"></script>
+    <script src="/vcard.js"></script>
     <script src="/main.js"></script>
 </body>
 </html>
