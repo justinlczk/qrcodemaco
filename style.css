@@ -1,3 +1,39 @@
 body {
     margin: 0;
 }
+
+#qrcode {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#form {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#form input {
+    margin: 10px 20px;
+    height: 30px;
+    border: solid 2px #312783;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+#form input[type='submit'] {
+    background-color: #312783;
+    color: #fff;
+    grid-column: 1/-1;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-left: 0;
+    text-align: center;
+}
