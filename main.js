@@ -33,13 +33,40 @@ form.addEventListener("input", () => {
   johnDoe.add(vCard.Entry.ORGANIZATION, `Macopharma`);
   johnDoe.add(
     vCard.Entry.ADDRESS,
-    `;;${adresse};${ville};${region};${cp}`,
+    `;;${adresse};${ville};${region};${cp};${pays}`,
     vCard.Type.WORK
   );
   johnDoe.add(vCard.Entry.URL, `https://macopharma.com`);
 
   link = vCard.dump(johnDoe); // use parameter true to force download
 });
+
+function Telephone(ndt) {
+  if(isNaN(ndt*1)) {
+  return false;
+  } else {
+  ndt = ndt.toString();
+  }
+  let newTel = "";
+  let count = 0;
+  for(i=0; i!=ndt.length; i++) {
+  switch(count) {
+  case 0:
+  newTel+=ndt.charAt(i);
+  count++;
+  break;
+  case 1:
+  newTel+=ndt.charAt(i);
+  count++;
+  break;
+  case 2:
+  newTel+=" "+ndt.charAt(i);
+  count=1;
+  break;
+  }
+  }
+  return newTel;
+  }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -82,12 +109,12 @@ form.addEventListener("submit", (e) => {
   })
 
   doc.setFontSize(11)
-  doc.text(.8, 1, 'Pauline')
-  doc.text(.8, 1.6, 'DESTOMBES')
+  doc.text(.8, 1.28, firstname.toUpperCase())
+  doc.text(.8, 1.88, nameForm.toUpperCase())
 
   doc.setFontSize(9)
-  doc.text(.8, 4.3, '06 00 00 00 00')
-  doc.text(.8, 4.9, 'pauline.destombes@macopharma.com')
+  doc.text(.8, 4.18, Telephone(tel))
+  doc.text(.8, 4.9, email)
 
   
   doc.addImage(canvas.toDataURL('image/svg', 1.0), 'SVG', 4.5, 1, 3.2, 3.2)

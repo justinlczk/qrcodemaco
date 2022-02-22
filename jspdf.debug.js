@@ -77,9 +77,8 @@
           'legal': [612, 1008],
           'junior-legal': [576, 360],
           'ledger': [1224, 792],
-          'tabloid': [240.94, 155.91],
-          'credit-card': [153, 243],
-          'carte-visite': [240.94, 155.91],
+          'tabloid': [792, 1224],
+          'credit-card': [153, 243]
       };
 
       /**
