@@ -43,8 +43,9 @@ form.addEventListener("input", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  document.getElementById("qrcode").innerHTML = ""
 
-  console.log(link);
+  
 
   new QRCode(document.getElementById("qrcode"), {
     text: link,
@@ -54,4 +55,25 @@ form.addEventListener("submit", (e) => {
     colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H,
   });
+
+  let dataPng = document.querySelector("#qrcode > canvas").toDataURL("image/png");
+
+  document.querySelector('#qrcode').insertAdjacentHTML("beforeend", "<a id=\"dl\" download=\"maco_qr_code.png\" >Télécharger le Qr Code</a>")
+
+  var canvas = document.querySelector("#qrcode > canvas");
+
+  function dlCanvas() {
+    var dt = canvas.toDataURL('image/png');
+    /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+    dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+  
+    /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+    dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+  
+    this.href = dt;
+  };
+  document.getElementById("dl").addEventListener('click', dlCanvas, false);
+
+
+  //document.querySelector('#qrcode').insertAdjacentHTML("beforeend", `<a download='qrcode.png' href="data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=qrcode.png;base64,${dataPng}">Télécharger l'image</a>`)
 });
