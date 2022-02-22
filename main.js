@@ -57,6 +57,7 @@ form.addEventListener("submit", (e) => {
   });
 
   let dataPng = document.querySelector("#qrcode > canvas").toDataURL("image/png");
+  let dataJpeg = document.querySelector("#qrcode > canvas").toDataURL("image/png");
 
   document.querySelector('#qrcode').insertAdjacentHTML("beforeend", "<a id=\"dl\" download=\"maco_qr_code.png\" >Télécharger le Qr Code</a>")
 
@@ -73,6 +74,26 @@ form.addEventListener("submit", (e) => {
     this.href = dt;
   };
   document.getElementById("dl").addEventListener('click', dlCanvas, false);
+
+  var doc = new jsPDF({
+    orientation: "landscape",
+    unit: "cm",
+    format: [8.5, 5.5]
+  })
+
+  doc.setFontSize(11)
+  doc.text(.8, 1, 'Pauline')
+  doc.text(.8, 1.6, 'DESTOMBES')
+
+  doc.setFontSize(9)
+  doc.text(.8, 4.3, '06 00 00 00 00')
+  doc.text(.8, 4.9, 'pauline.destombes@macopharma.com')
+
+  
+  doc.addImage(canvas.toDataURL('image/svg', 1.0), 'SVG', 4.5, 1, 3.2, 3.2)
+  doc.save('a3.pdf')
+
+
 
 
   //document.querySelector('#qrcode').insertAdjacentHTML("beforeend", `<a download='qrcode.png' href="data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=qrcode.png;base64,${dataPng}">Télécharger l'image</a>`)

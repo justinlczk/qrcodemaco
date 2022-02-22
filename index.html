@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Qr Code MacoPharma</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <style>
-#qrcode {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    flex-direction: column;
-}
+      #qrcode {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        flex-direction: column;
+      }
 
-#qrcode a {
-    margin-top: 1rem;
-}
+      #qrcode a {
+        margin-top: 1rem;
+      }
 
-#form {
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+      #form {
+        width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
 
-#form input {
-    margin: 10px 20px;
-    height: 30px;
-    border: solid 2px #312783;
-    border-radius: 5px;
-    background-color: #fafafa;
-    font-size: 16px;
-    padding-left: 10px;
-}
+      #form input {
+        margin: 10px 20px;
+        height: 30px;
+        border: solid 2px #312783;
+        border-radius: 5px;
+        background-color: #fafafa;
+        font-size: 16px;
+        padding-left: 10px;
+      }
 
-#form input[type='submit'] {
-    background-color: #312783;
-    color: #fff;
-    grid-column: 1/-1;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 500;
-    padding-left: 0;
-    text-align: center;
-}
+      #form input[type="submit"] {
+        background-color: #312783;
+        color: #fff;
+        grid-column: 1/-1;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 500;
+        padding-left: 0;
+        text-align: center;
+      }
     </style>
-    
 
-    <div id="qrcode" class="qr">
-        
-    </div>
+    <div id="qrcode" class="qr"></div>
 
     <div class="form-ctn">
-        <form id="form">
+      <form id="form">
+        <input type="text" id="nom" placeholder="Votre nom" />
+        <input type="text" id="prenom" placeholder="Votre prénom" />
+        <!--<input type="text" id="tel" placeholder="Votre téléphone fixe">-->
+        <input
+          type="text"
+          id="tel-mobile"
+          placeholder="Votre téléphone mobile"
+        />
+        <input type="text" id="email" placeholder="Votre email" />
 
-            <input type="text" id="nom" placeholder="Votre nom">
-            <input type="text" id="prenom" placeholder="Votre prénom">
-            <!--<input type="text" id="tel" placeholder="Votre téléphone fixe">-->
-            <input type="text" id="tel-mobile" placeholder="Votre téléphone mobile">
-            <input type="text" id="email" placeholder="Votre email">
-
-            <!-- <input type="text" id="website">
+        <!-- <input type="text" id="website">
             <input type="text" id="societe"> -->
 
-            <input type="text" id="poste" placeholder="Le poste que vous occupez chez Macopharma">
-            
-            <input type="text" id="adresse" placeholder="Votre adresse">
-            <input type="text" id="region" placeholder="Votre région">
-            <input type="text" id="cp" placeholder="Votre CP">
-            <input type="text" id="ville" placeholder="Votre Ville">
-            <input type="text" id="pays" placeholder="Votre pays">
+        <input
+          type="text"
+          id="poste"
+          placeholder="Le poste que vous occupez chez Macopharma"
+        />
 
-            <input type="submit" value="Valider">
-        </form>
+        <input type="text" id="adresse" placeholder="Votre adresse" />
+        <input type="text" id="region" placeholder="Votre région" />
+        <input type="text" id="cp" placeholder="Votre CP" />
+        <input type="text" id="ville" placeholder="Votre Ville" />
+        <input type="text" id="pays" placeholder="Votre pays" />
+
+        <input type="submit" value="Valider" />
+      </form>
     </div>
 
     <script src="/qrcode.js"></script>
     <script src="/vcard.js"></script>
+    <script src="/jspdf.debug.js"></script>
     <script src="/main.js"></script>
-</body>
+  </body>
 </html>
